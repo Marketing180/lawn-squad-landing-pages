@@ -2,6 +2,9 @@ import { getPageData, getAllPaths } from "@/lib/get-page-data";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
+// ISR: revalidate every 60 seconds so approved pages go live quickly
+export const revalidate = 60;
+
 export async function generateStaticParams() {
   const paths = await getAllPaths();
   return paths;
